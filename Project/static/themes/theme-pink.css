@@ -2,7 +2,7 @@
 :root {
     --bg: #fff5f7;             /* very light pink background */
     --panel: #ffffff;          /* white panel */
-    --panel-alt: #ffe4f1;      /* subtle pink-tinted panel for gradients/cards */
+    --panel-alt: #fff0f6;      /* subtle pink-tinted panel for gradients/cards */
 
     --text: #4a0e25;           /* dark pinkish text */
     --muted: #a34d65;          /* muted pink-gray */
