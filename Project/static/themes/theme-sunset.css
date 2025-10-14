@@ -1,0 +1,34 @@
+/* Dark & Bright Baby Pink Theme Variables */
+:root {
+    --bg: #fff0f5;             /* very light baby pink background */
+    --panel: #ffffff;           /* white panel */
+    --panel-alt: #ffe4f1;       /* soft pink panel */
+
+    --text: #9b1e48;            /* dark baby pink for readability */
+    --muted: #f9a8c8;           /* bright baby pink, softer accent */
+
+    --primary: #f472b6;         /* bright baby pink */
+    --primary-dark: #c2185b;    /* darker pink for contrast */
+    --secondary: #fbcfe8;       /* very soft pastel pink */
+    --secondary-dark: #ec4899;  /* deep accent pink */
+
+    --accent: #ffd6e8;          /* pastel baby pink */
+    --accent-2: #f472b6;        /* bright pink accent */
+
+    --border: #ffbadf;          /* soft pink border */
+
+    --shadow: rgba(196, 24, 91, 0.08);   /* soft pink shadow */
+    --shadow-strong: rgba(196, 24, 91, 0.18);
+
+    --progress-track: #ffe4f1;  /* very light pink track */
+    --table-row-hover: #ffe4f1; /* hover background */
+    --hover-bg: #ffe4f1;        /* general hover background */
+
+    --btn-text-primary: #000000;
+    --btn-text-secondary: #000000;
+    --btn-text-ghost: #000000;
+
+    --card-text: #1e293b;          /* default card text */
+    --table-header-text: #000000;  /* table headers */
+    --table-text: #1e293b;         /* table body text */
+}

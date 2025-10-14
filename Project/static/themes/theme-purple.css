@@ -1,0 +1,37 @@
+/* Pure Purple Theme Variables */
+:root {
+    --bg: #f5f3ff;             /* very light lavender background */
+    --panel: #ffffff;          /* main panel */
+    --panel-alt: #f3e8ff;      /* alternate panel/card background */
+
+    --text: #2e1065;           /* deep purple text */
+    --muted: #7e22ce;          /* muted violet */
+
+    --primary: #a855f7;        /* vibrant purple */
+    --primary-dark: #9333ea;   /* darker purple */
+    --secondary: #c084fc;      /* soft lilac */
+    --secondary-dark: #7c3aed; /* strong violet */
+
+    --accent: #d8b4fe;         /* pastel purple accent */
+    --accent-2: #a855f7;       /* bright purple accent */
+
+    --border: #e9d5ff;         /* light lavender border */
+
+    --shadow: rgba(168, 85, 247, 0.12);  
+    --shadow-strong: rgba(147, 51, 234, 0.22);
+
+    --progress-track: #f3e8ff; /* very light lavender progress track */
+    --table-row-hover: #ede9fe; /* hover effect */
+    --hover-bg: #ede9fe;       /* general hover background */
+
+    --btn-text-primary: #000000;
+    --btn-text-secondary: #000000;
+    --btn-text-ghost: #000000;
+
+    --card-text: #1e293b;          /* default card text */
+    --table-header-text: #000000;  /* table headers */
+    --table-text: #1e293b;         /* table body text */
+
+    --panel-alt: #f3f4f6;          /* alternate panel/card background */
+    --hover-bg: #e5e7eb;  
+}

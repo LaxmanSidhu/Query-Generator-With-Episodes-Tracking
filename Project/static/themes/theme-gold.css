@@ -1,0 +1,37 @@
+/* ------------------- */
+/* Gold & Royal Metallic Theme */
+/* ------------------- */
+
+:root {
+    --bg: #fff8f2;             /* warm light background */
+    --panel: #fffdf7;          /* slightly creamy panel */
+    --panel-alt: #fff5e6;      /* subtle gold gradient for cards/panels */
+
+    --text: #4b3e2a;           /* dark brownish gold text */
+    --muted: #a38d6d;          /* muted goldish tones */
+
+    --primary: #d4af37;        /* classic gold */
+    --primary-dark: #bfa232;   /* darker gold for depth */
+    --secondary: #f5d061;      /* lighter gold accent */
+    --secondary-dark: #c89e2b; /* deep metallic accent */
+
+    --accent: #f7e1a2;         /* soft metallic accent */
+    --accent-2: #e6c23c;       /* vivid accent for gradients */
+
+    --border: #e2c57a;         /* goldish border */
+
+    --shadow: rgba(189, 153, 44, 0.12);  
+    --shadow-strong: rgba(189, 153, 44, 0.22);
+
+    --progress-track: #fff3d6; /* subtle light gold track */
+    --table-row-hover: #fff6e0; 
+    --hover-bg: #fff6e0;       /* hover background for buttons/cards */
+
+    --btn-text-primary: #000000;  /* readable on light gold buttons */
+    --btn-text-secondary: #000000;
+    --btn-text-ghost: #000000;
+
+    --card-text: #3c2f1a;          /* readable on panels */
+    --table-header-text: #3c2f1a;
+    --table-text: #3c2f1a;
+}

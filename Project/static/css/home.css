@@ -1,0 +1,68 @@
+/* Home page specific styles */
+
+/* Progress bar */
+.progress-container {
+    display: none;
+    margin-top: 16px;
+}
+
+.progress-bar {
+    border: 1px solid var(--border);
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--progress-track);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress, 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--btn-text-primary);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 8px;
+    transition: width .2s ease;
+}
+
+.eta-text {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* DataTables customizations */
+.full-width { width: 100%; }
+
+table.dataTable thead th {
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: var(--table-header-text);
+}
+
+table.dataTable tbody tr:hover {
+    background: var(--table-row-hover);
+    color: var(--table-text);
+}
+
+div.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: var(--primary) !important;
+    color: var(--btn-text-primary) !important;
+    border-radius: 8px;
+    border: 0 !important;
+}
+
+div.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 8px;
+    border: 0 !important;
+    padding: 6px 10px;
+    color: var(--table-text);
+}
+
+

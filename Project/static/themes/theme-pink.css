@@ -1,0 +1,37 @@
+/* Shades of Pink Theme Variables */
+:root {
+    --bg: #fff5f7;             /* very light pink background */
+    --panel: #ffffff;          /* white panel */
+    --panel-alt: #ffe4f1;      /* subtle pink-tinted panel for gradients/cards */
+
+    --text: #4a0e25;           /* dark pinkish text */
+    --muted: #a34d65;          /* muted pink-gray */
+
+    --primary: #f472b6;        /* bright pink */
+    --primary-dark: #ec4899;   /* darker pink */
+    --secondary: #fb7185;      /* coral pink */
+    --secondary-dark: #e11d48; /* deep rose pink */
+
+    --accent: #f9a8d4;         /* pastel pink */
+    --accent-2: #f472b6;       /* vivid pink accent */
+
+    --border: #fbcfe8;         /* soft pink border */
+
+    --shadow: rgba(236, 72, 153, 0.08);   /* pink glow shadow */
+    --shadow-strong: rgba(236, 72, 153, 0.18);
+
+    --progress-track: #ffe4f1; /* very light pink track */
+    --table-row-hover: #fff0f6; /* hover pink */
+    --hover-bg: #fff0f6;       /* general hover background */
+
+    --btn-text-primary: #000000;
+    --btn-text-secondary: #000000;
+    --btn-text-ghost: #000000;
+
+    --card-text: #1e293b;          /* default card text */
+    --table-header-text: #000000;  /* table headers */
+    --table-text: #1e293b;         /* table body text */
+
+    --panel-alt: #f3f4f6;          /* alternate panel/card background */
+    --hover-bg: #e5e7eb;  
+}

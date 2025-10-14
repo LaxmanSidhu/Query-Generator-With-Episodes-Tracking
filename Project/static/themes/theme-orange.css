@@ -1,0 +1,37 @@
+/* Enhanced Sunset Orange Theme Variables */
+:root {
+    --bg: #fff7f0;             /* warmer light orange background */
+    --panel: #ffffff;          /* main panel background */
+    --panel-alt: #fff3e8;      /* alternate panel/card background */
+
+    --text: #7b2c0f;           /* deep burnt orange text */
+    --muted: #a3471f;          /* muted warm text */
+
+    --primary: #fb7d2a;        /* vibrant orange */
+    --primary-dark: #e85a0c;   /* darker orange for depth */
+    --secondary: #ff9a4d;      /* soft orange highlight */
+    --secondary-dark: #d97706; /* rich sunset accent */
+
+    --accent: #ffb86c;         /* golden-orange accent */
+    --accent-2: #f97316;       /* deeper orange accent */
+
+    --border: #fed7aa;         /* soft peach-orange border */
+
+    --shadow: rgba(248, 120, 30, 0.12);  /* subtle orange-tinted shadow */
+    --shadow-strong: rgba(232, 90, 12, 0.22); /* stronger shadow */
+
+    --progress-track: #ffe6cc;  /* warm light orange track */
+    --table-row-hover: #fff3e8; /* hover effect */
+    --hover-bg: #fff3e8;        /* general hover background */
+
+    --btn-text-primary: #000000;
+    --btn-text-secondary: #000000;
+    --btn-text-ghost: #000000;    /* dark for ghost buttons */
+
+    --card-text: #1f2937;          /* neutral dark text for readability */
+    --table-header-text: #7b2c0f;  /* header text warm orange */
+    --table-text: #1f2937;         /* body text neutral dark */
+
+    --panel-alt: #fff3e8;          /* alternate panel/card background */
+    --hover-bg: #ffedd5;  
+}

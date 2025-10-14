@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Podcast Query Generator{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link id="themeStylesheet" rel="stylesheet" href="{{ url_for('static', filename='themes/theme-pink.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('results') }}">Results</a>
+        </div>
+        <div class="nav-right">
+            <label for="themeSelect">Theme:</label>
+            <select id="themeSelect">
+                <option value="pink" selected>Pink</option>
+                <option value="orange">Orange</option>
+                <option value="blue">Blue</option>
+                <option value="mint">Mint</option>
+                <option value="purple">Purple</option>
+                <option value="gold">Gold</option>
+                <option value="gray">Gray</option>
+                <option value="sunset">Sunset Pink⭐</option>
+                <option value="ocean">Ocean Blue⭐</option>
+                <option value="cyberpunk">Cyberpunk ⭐</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+
+    <footer class="footer">
+        Made by
+        <a href="#" id="meLink" class="me-link">Me</a>
+        with ❤️
+    </footer>
+
+    <!-- Hidden image modal -->
+    <div id="imageModal" class="modal" aria-hidden="true" role="dialog" aria-label="About Me">
+        <span class="close" aria-label="Close">&times;</span>
+        <img class="modal-image" id="modalImage" src="{{ url_for('static', filename='Data/sidhu.png') }}" alt="Sidhu">
+    </div>
+
+    <!-- Add audio file -->
+    <audio id="clickSound" src="{{ url_for('static', filename='Data/sound.mp3') }}"></audio>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="{{ url_for('static', filename='javascripts/base.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

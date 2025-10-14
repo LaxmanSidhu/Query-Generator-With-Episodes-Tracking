@@ -1,0 +1,34 @@
+/* Cyberpunk Theme Variables */
+:root {
+    --bg: #0f0f1a;
+    --panel: #1a1a2e;
+    --panel-alt: #2a2a40;
+
+    --text: #e600ff;
+    --muted: #9b00ff;
+
+    --primary: #ff00ff;
+    --primary-dark: #cc00cc;
+    --secondary: #00ffff;
+    --secondary-dark: #00cccc;
+
+    --accent: #ff66ff;
+    --accent-2: #ff00ff;
+
+    --border: #6600cc;
+
+    --shadow: rgba(255, 0, 255, 0.08);
+    --shadow-strong: rgba(255, 0, 255, 0.18);
+
+    --progress-track: #330033;
+    --table-row-hover: #2a2a40;
+    --hover-bg: #2a2a40;
+
+    --btn-text-primary: #ffffff;
+    --btn-text-secondary: #ffffff;
+    --btn-text-ghost: #ffffff;
+
+    --card-text: #f0f0f0;
+    --table-header-text: #ffffff;
+    --table-text: #f0f0f0;
+}

@@ -1,0 +1,36 @@
+/* Professional Blue Theme Variables */
+:root {
+    --bg: #f5f9ff;            /* soft light blue background */
+    --panel: #ffffff;         /* white panels */
+    --panel-alt: #f0f6ff;     /* subtle bluish tint for alternate panels/cards */
+
+    --text: #0f172a;          /* dark navy text */
+    --muted: #475569;         /* muted slate */
+
+    --primary: #3b82f6;       /* main blue */
+    --primary-dark: #1d4ed8;  /* deep blue */
+    --secondary: #60a5fa;     /* lighter blue */
+    --secondary-dark: #2563eb;/* stronger blue */
+
+    --accent: #93c5fd;        /* soft accent blue */
+    --accent-2: #38bdf8;      /* cyan-ish accent */
+
+    --border: #dbeafe;        /* light blue border */
+
+    --shadow: rgba(37, 99, 235, 0.10);  
+    --shadow-strong: rgba(37, 99, 235, 0.20);
+
+    --progress-track: #eaf2ff; /* pale blue progress bar background */
+    --table-row-hover: #eef6ff; /* hover effect */
+    --hover-bg: #f0f6ff;       /* general-purpose hover background */
+    --btn-text-primary: #000000;
+    --btn-text-secondary: #000000;
+    --btn-text-ghost: #000000;
+
+    --card-text: #1e293b;          /* default card text */
+    --table-header-text: #000000;  /* table headers */
+    --table-text: #1e293b;         /* table body text */
+
+    --panel-alt: #f3f4f6;          /* alternate panel/card background */
+    --hover-bg: #e5e7eb;  
+}

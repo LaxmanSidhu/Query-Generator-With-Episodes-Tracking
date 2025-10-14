@@ -1,0 +1,88 @@
+<!-- Suggestions Section -->
+<div class="suggestions">
+    <h3>Suggestions for: <em>{{ selected_title }}</em></h3>
+
+    <div class="buttons">
+        <button type="button" class="btn ghost" data-target="one_word">Single Words</button>
+        <button type="button" class="btn ghost" data-target="two_word">Two Words</button>
+        <button type="button" class="btn ghost" data-target="one_word_podcasts">Single Word + Podcasts</button>
+        <button type="button" class="btn ghost" data-target="two_word_podcasts">Two Words + Podcasts</button>
+    </div>
+
+    <hr class="divider">
+
+    <!-- One-word Cards -->
+    <div id="one_word" class="cards hidden">
+        {% for word in one_word %}
+        <div class="card {% if word in red_one_word %}highlight-red{% elif word in yellow_one_word %}highlight-yellow{% endif %}">
+            {{ word }}
+            <button class="add-query-btn" type="button" title="Add to queries">➕</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Two-word Cards -->
+    <div id="two_word" class="cards hidden">
+        {% for word in two_word %}
+        <div class="card {% if word in red_two_word %}highlight-red{% elif word in yellow_two_word %}highlight-yellow{% endif %}">
+            {{ word }}
+            <button class="add-query-btn" type="button" title="Add to queries">➕</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- One-word + Podcasts Cards -->
+    <div id="one_word_podcasts" class="cards hidden">
+        {% for word in one_word_podcasts %}
+        {% set base_word = word.rsplit(' ', 1)[0] %}
+        <div class="card {% if base_word in red_one_word %}highlight-red{% elif base_word in yellow_one_word %}highlight-yellow{% endif %}">
+            {{ word }}
+            <button class="add-query-btn" type="button" title="Add to queries">➕</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Two-word + Podcasts Cards -->
+    <div id="two_word_podcasts" class="cards hidden">
+        {% for word in two_word_podcasts %}
+        {% set base_word = word.rsplit(' ', 1)[0] %}
+        <div class="card {% if base_word in red_two_word %}highlight-red{% elif base_word in yellow_two_word %}highlight-yellow{% endif %}">
+            {{ word }}
+            <button class="add-query-btn" type="button" title="Add to queries">➕</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <p class="note">
+        Note: If you see Red cards, those already have lists in Feedspot. <br>
+        Yellow cards are similar intent keywords that might have results in Feedspot.
+    </p>
+</div>
+
+<br>
+<center><button id="showPlannerBtn" class="btn">Click for Keyword Planner</button></center>
+
+<!-- Keyword Planner Section -->
+<div id="keyword_planner_section_wrapper">
+    <div id="keyword_planner_section">
+        <div id="plannerOutputs">
+            <div class="planner-card">
+                <h3>🎯 One-Word Podcast Queries</h3>
+                <button class="copy-btn" type="button" aria-label="Copy one-word keywords"
+                        data-copy-target="one-word-text">📋</button>
+                <hr class="divider planner-divider">
+                <p id="one-word-text">{{ one_word_podcast_text }}</p>
+            </div>
+
+            <div class="planner-card">
+                <h3>🎯 Two-Word Podcast Queries</h3>
+                <button class="copy-btn" type="button" aria-label="Copy two-word keywords"
+                        data-copy-target="two-word-text">📋</button>
+                <hr class="divider planner-divider">
+                <p id="two-word-text">{{ two_word_podcast_text }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

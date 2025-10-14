@@ -1,0 +1,34 @@
+/* Ocean Theme Variables */
+:root {
+    --bg: #e0f7fa;
+    --panel: #ffffff;
+    --panel-alt: #b2ebf2;
+
+    --text: #064e3b;
+    --muted: #06b6d4;
+
+    --primary: #22d3ee;
+    --primary-dark: #0284c7;
+    --secondary: #81e6d9;
+    --secondary-dark: #0e7490;
+
+    --accent: #a5f3fc;
+    --accent-2: #22d3ee;
+
+    --border: #b2ebf2;
+
+    --shadow: rgba(2, 132, 199, 0.08);
+    --shadow-strong: rgba(2, 132, 199, 0.18);
+
+    --progress-track: #b2ebf2;
+    --table-row-hover: #b2ebf2;
+    --hover-bg: #b2ebf2;
+
+    --btn-text-primary: #000000;
+    --btn-text-secondary: #000000;
+    --btn-text-ghost: #000000;
+
+    --card-text: #1e293b;
+    --table-header-text: #000000;
+    --table-text: #1e293b;
+}

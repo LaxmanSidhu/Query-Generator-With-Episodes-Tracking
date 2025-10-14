@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% block title %}Results - Podcast Query Generator{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+{% endblock %}
+
+{% block content %}
+<h2>Query Generator</h2>
+
+{% if message %}
+<p class="flash-message error">{{ message }}</p>
+{% endif %}
+
+{% if analyzed_count is defined and total_episodes is defined and (total_episodes or 0) > 0 %}
+<div class="analyzed-summary">
+    <span class="pill clickable-pill" id="episodesAnalyzedPill">Episodes Analysed</span>
+    <span class="count"><strong>{{ analyzed_count or 0 }}</strong>/<span class="total">{{ total_episodes or 0 }}</span></span>
+    {% if (analyzed_count or 0) == 0 %}
+    <span class="hint muted">No episodes analysed yet</span>
+    {% endif %}
+    <div class="progressbar" aria-label="Analysed progress">
+        {% set pct = 0 if (total_episodes or 0) == 0 else ((analyzed_count or 0) * 100 // (total_episodes or 1)) %}
+        <div class="bar" style="width: {{ pct }}%"></div>
+        <span class="pct-label">{{ pct }}%</span>
+    </div>
+    
+</div>
+{% endif %}
+
+{% if download_ready %}
+<a href="{{ url_for('download') }}" class="btn-link">
+    <button class="btn success">⬇ Download Processed CSV</button>
+</a>
+{% else %}
+<p class="muted">Download not available. Please upload a CSV first.</p>
+{% endif %}
+
+{% if titles %}
+<form method="POST" action="{{ url_for('results') }}" class="suggest-form">
+    <label for="title"><strong>Select Episode Title:</strong></label>
+    <select name="title" required>
+        {% for item in titles %}
+        {% if item is iterable and item|length == 2 %}
+        {% set idx = item[0] %}
+        {% set t = item[1] %}
+        {% else %}
+        {% set idx = loop.index %}
+        {% set t = item %}
+        {% endif %}
+        <option value="{{ t }}" {% if selected_title==t %}selected{% endif %}>
+            {{ idx }}. {{ t }}
+        </option>
+        {% endfor %}
+    </select>
+    <button type="submit" id="getSuggestionsBtn" class="btn primary" {% if not download_ready %}disabled{% endif %}>Get Suggestions</button>
+</form>
+{% endif %}
+
+
+
+{% if selected_title %}
+<div class="episode-controls">
+    <!-- Episode Status Display -->
+    <p>Episode Status: <span id="episodeStatusText">{% if episode_analyzed %}✅ Analyzed{% else %}❌ Not Yet Analyzed{%
+            endif %}</span></p>
+
+    <!-- Mark Episode Analyzed Button -->
+    <button id="markEpisodeBtn" class="btn success">{% if episode_analyzed %}Unmark Episode Analyzed{% else %}Mark
+        Episode Analyzed{% endif %}</button>
+
+    <!-- Query Counter -->
+    <p>Added Queries: <span id="queryCounter">{{ queries_count or 0 }}</span></p>
+    <p class="saved-queries-label">Saved Queries: <span id="savedQueriesText"></span></p>
+</div>
+
+<div id="combinedContainer">
+    <div class="suggestions">
+        <h3>Suggestions for: <em>{{ selected_title }}</em></h3>
+
+        <div class="buttons">
+            <button type="button" class="btn ghost" data-target="one_word">Single Words</button>
+            <button type="button" class="btn ghost" data-target="two_word">Two Words</button>
+            <button type="button" class="btn ghost" data-target="one_word_podcasts">Single Word + Podcasts</button>
+            <button type="button" class="btn ghost" data-target="two_word_podcasts">Two Words + Podcasts</button>
+        </div>
+
+        <hr class="divider">
+
+        <!-- One-word Cards -->
+        <div id="one_word" class="cards hidden">
+            {% for word in one_word %}
+            <div class="card 
+        {% if word in red_one_word %}highlight-red{% elif word in yellow_one_word %}highlight-yellow{% endif %}">
+                {{ word }}
+                <button class="add-query-btn" type="button" title="Add to queries">➕</button>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Two-word Cards -->
+        <div id="two_word" class="cards hidden">
+            {% for word in two_word %}
+            <div class="card 
+        {% if word in red_two_word %}highlight-red{% elif word in yellow_two_word %}highlight-yellow{% endif %}">
+                {{ word }}
+                <button class="add-query-btn" type="button" title="Add to queries">➕</button>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- One-word + Podcasts Cards -->
+        <div id="one_word_podcasts" class="cards hidden">
+            {% for word in one_word_podcasts %}
+            {% set base_word = word.rsplit(' ', 1)[0] %}
+            <div
+                class="card 
+        {% if base_word in red_one_word %}highlight-red{% elif base_word in yellow_one_word %}highlight-yellow{% endif %}">
+                {{ word }}
+                <button class="add-query-btn" type="button" title="Add to queries">➕</button>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Two-word + Podcasts Cards -->
+        <div id="two_word_podcasts" class="cards hidden">
+            {% for word in two_word_podcasts %}
+            {% set base_word = word.rsplit(' ', 1)[0] %}
+            <div
+                class="card 
+        {% if base_word in red_two_word %}highlight-red{% elif base_word in yellow_two_word %}highlight-yellow{% endif %}">
+                {{ word }}
+                <button class="add-query-btn" type="button" title="Add to queries">➕</button>
+            </div>
+            {% endfor %}
+        </div>
+
+        <p class="note">
+            Note: If you see Red cards, those already have lists in Feedspot. <br>
+            Yellow cards are similar intent keywords that might have results in Feedspot.
+        </p>
+    </div>
+
+    <br>
+    <center><button id="showPlannerBtn" class="btn">Click for Keyword Planner</button></center>
+
+    <div id="keyword_planner_section_wrapper">
+        <div id="keyword_planner_section">
+            <div id="plannerOutputs">
+                <div class="planner-card">
+                    <h3>🎯 One-Word Podcast Queries</h3>
+                    <button class="copy-btn" type="button" aria-label="Copy one-word keywords"
+                        data-copy-target="one-word-text">📋</button>
+                    <hr class="divider planner-divider">
+                    <p id="one-word-text">{{ one_word_podcast_text }}</p>
+                </div>
+
+                <div class="planner-card">
+                    <h3>🎯 Two-Word Podcast Queries</h3>
+                    <button class="copy-btn" type="button" aria-label="Copy two-word keywords"
+                        data-copy-target="two-word-text">📋</button>
+                    <hr class="divider planner-divider">
+                    <p id="two-word-text">{{ two_word_podcast_text }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endif %}
+
+<!-- Analysis Status Popup Modal -->
+<div id="analysisStatusModal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Episode Analysis Status</h3>
+            <button class="modal-close-btn" id="closeAnalysisModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="status-section">
+                <h4 class="status-title analyzed-title">
+                    <span class="status-icon">✅</span>
+                    Episodes Analyzed
+                </h4>
+                <div class="episodes-list" id="analyzedEpisodesList">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="status-section">
+                <h4 class="status-title not-analyzed-title">
+                    <span class="status-icon">❌</span>
+                    Episodes Not Analyzed
+                </h4>
+                <div class="episodes-list" id="notAnalyzedEpisodesList">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="status-summary">
+                <p><strong>Total Episodes:</strong> <span id="totalEpisodesCount">0</span></p>
+                <p><strong>Analyzed:</strong> <span id="analyzedCount">0</span></p>
+                <p><strong>Not Analyzed:</strong> <span id="notAnalyzedCount">0</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='javascripts/results.js') }}"></script>
+{% endblock %}

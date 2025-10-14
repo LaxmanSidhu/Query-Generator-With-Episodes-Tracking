@@ -1,0 +1,34 @@
+/* Silver & Gray Theme Variables */
+:root {
+    --bg: #f9fafb;             /* very light silver-gray background */
+    --panel: #ffffff;          /* main panels */
+    --panel-alt: #f3f4f6;      /* alternate panel/card background */
+
+    --text: #1f2937;           /* dark slate-gray text */
+    --muted: #6b7280;          /* muted gray */
+
+    --primary: #9ca3af;        /* soft silver */
+    --primary-dark: #6b7280;   /* darker silver-gray */
+    --secondary: #d1d5db;      /* light gray accent */
+    --secondary-dark: #9ca3af; /* medium gray accent */
+
+    --accent: #cbd5e1;         /* pale silver accent */
+    --accent-2: #cdd5e6;       /* cool gray accent */
+
+    --border: #d1d5db;         /* soft gray border */
+
+    --shadow: rgba(156, 163, 175, 0.12);
+    --shadow-strong: rgba(107, 114, 128, 0.22);
+
+    --progress-track: #f3f4f6; /* light gray track */
+    --table-row-hover: #e5e7eb; /* hover effect */
+    --hover-bg: #e5e7eb;        /* general hover background */
+
+    --btn-text-primary: #000000;
+    --btn-text-secondary: #000000;
+    --btn-text-ghost: #000000;
+
+    --card-text: #1f2937;          /* default card text */
+    --table-header-text: #111827;  /* table headers */
+    --table-text: #1f2937;         /* table body text */
+}

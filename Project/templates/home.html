@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Home - Podcast Query Generator{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<h2>Upload Podcast CSV</h2>
+
+{% if message %}
+<p class="flash-message {{ 'success' if 'success' in message.lower() else 'error' }}">{{ message }}</p>
+{% endif %}
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".csv" required>
+    <button type="submit">Upload</button>
+    {% if filename %}
+    <span>Selected file: <strong>{{ filename }}</strong></span>
+    {% endif %}
+</form>
+
+{% if rows %}
+<h3>CSV Info</h3>
+<p><strong>Rows:</strong> {{ rows }}, <strong>Columns:</strong> {{ cols }}</p>
+
+<!-- Check if table HTML exists and display it -->
+{% if table %}
+<div id="csvTableContainer">
+    {{ table | safe }}
+</div>
+{% else %}
+<!-- Empty table placeholder for JS DataTable to initialize -->
+<table id="csvTable" class="display full-width"></table>
+{% endif %}
+
+<button id="generateBtn" class="btn primary">Generate Important Queries</button>
+
+<div id="progressContainer" class="progress-container">
+    <div id="progressBar" class="progress-bar"></div>
+    <p id="etaText" class="eta-text"></p>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='javascripts/home.js') }}"></script>
+{% endblock %}
