@@ -1,0 +1,2 @@
+# Query Generator With Episodes Tracking
+Episode Query Generator & Tracker – A web app built with HTML, CSS, JavaScript, and Python Flask that helps process CSV files of episodes. It picks out important words from descriptions, suggests related queries, and keeps track of which episodes have been analyzed using a progress bar. Query team can download the updated CSV and even upload queries to a keyword planner, making it easier to manage content and plan keywords.
