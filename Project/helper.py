@@ -10,8 +10,36 @@ EMOJI_RE = re.compile(r"[^\x00-\x7F]+")
 MULTISPACE_RE = re.compile(r"\s+")
 
 STOPWORDS = set([
-    "the","and","is","in","it","of","to","a","an","for","on","with","that","this","these","those","s"
+    # Articles / Determiners
+    "a", "an", "the", "this", "that", "these", "those",
+
+    # Conjunctions
+    "and", "or", "but", "so", "because", "as", "if", "while", "though", "although",
+
+    # Prepositions
+    "in", "on", "at", "to", "from", "for", "of", "with", "by", "about", "against",
+    "between", "into", "through", "during", "before", "after", "above", "below",
+    "under", "over", "around", "near",
+
+    # Pronouns
+    "i", "me", "my", "myself", "we", "our", "ours", "ourselves",
+    "you", "your", "yours", "yourself", "yourselves",
+    "he", "him", "his", "himself", "she", "her", "hers", "herself",
+    "it", "its", "itself", "they", "them", "their", "theirs", "themselves",
+
+    # Auxiliary & linking verbs
+    "am", "is", "are", "was", "were", "be", "been", "being", "do", "does", "did",
+    "doing", "have", "has", "had", "having", "can", "could", "shall", "should",
+    "will", "would", "may", "might", "must",
+
+    # Question / filler words
+    "what", "which", "who", "whom", "whose", "where", "when", "why", "how",
+
+    # Others (common short fillers)
+    "there", "then", "than", "too", "very", "just", "not", "no", "nor", "only",
+    "own", "same", "such", "s", "t", "re", "ll", "d", "m", "ve"
 ])
+
 
 def clean_text(text):
     text = URL_RE.sub(" ", str(text))

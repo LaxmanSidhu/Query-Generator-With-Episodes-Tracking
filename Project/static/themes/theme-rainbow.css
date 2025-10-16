@@ -1,0 +1,37 @@
+/* 🌈 Rainbow Theme Variables */
+:root {
+    --bg: linear-gradient(135deg, #ffe4e6, #fff7d6, #e0ffe3, #dbeafe, #ede9fe);;               /* soft lilac-white background */
+    --panel: #ffffff;            /* white main panel */
+    --panel-alt: #f9fafb;        /* subtle neutral alternate panel */
+
+    --text: #1f1147;             /* deep indigo text */
+    --muted: #6d6a75;            /* soft grayish purple text */
+
+    --primary: #ef4444;          /* red */
+    --primary-dark: #b91c1c;     /* dark red */
+
+    --secondary: #f59e0b;        /* orange */
+    --secondary-dark: #b45309;   /* darker orange */
+
+    --accent: #36dda5;           /* green */
+    --accent-2: #5a98fc;         /* blue */
+    --accent-3: #8b5cf6;         /* purple */
+    --accent-4: #ec4899;         /* pink */
+
+    --border: #e5e7eb;           /* soft neutral border */
+
+    --shadow: rgba(59, 130, 246, 0.08);      /* soft blue glow */
+    --shadow-strong: rgba(255, 69, 69, 0.18);
+
+    --progress-track: #f3f4f6;   /* neutral progress track */
+    --table-row-hover: #fef3c7;  /* pale yellow hover row */
+    --hover-bg: #e0f2fe;         /* light cyan hover */
+
+    --btn-text-primary: #ffffff;
+    --btn-text-secondary: #000000;
+    --btn-text-ghost: #1f2937;
+
+    --card-text: #1e293b;
+    --table-header-text: #000000;
+    --table-text: #1e293b;
+}
