@@ -37,7 +37,9 @@ STOPWORDS = set([
 
     # Others (common short fillers)
     "there", "then", "than", "too", "very", "just", "not", "no", "nor", "only",
-    "own", "same", "such", "s", "t", "re", "ll", "d", "m", "ve"
+    "own", "same", "such", "s", "t", "re", "ll", "d", "m", "ve", 
+
+    "podcast", "podcasts"
 ])
 
 
