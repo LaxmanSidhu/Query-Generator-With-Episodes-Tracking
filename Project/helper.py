@@ -58,7 +58,7 @@ def important_words_from_texts(texts, max_words=200):
 
     for text in texts:
             words = [w.lower() for w in re.findall(r"\w+", clean_text(text))
-                     if w.lower() not in STOPWORDS and len(w) > 2]
+                     if w.lower() not in STOPWORDS and len(w) > 1]
             seen, out = set(), []
             for w in words:
                 if w not in seen:
